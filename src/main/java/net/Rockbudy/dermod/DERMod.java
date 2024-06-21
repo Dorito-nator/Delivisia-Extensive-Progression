@@ -1,6 +1,7 @@
 package net.Rockbudy.dermod;
 
 import com.mojang.logging.LogUtils;
+import net.Rockbudy.dermod.block.ModBlocks;
 import net.Rockbudy.dermod.items.ModItems;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
@@ -28,6 +29,7 @@ public class DERMod
 
         ModItems.register(modEventBus);
         DERCreativeModeTabs.register(modEventBus);
+        ModBlocks.register(modEventBus);
 
         // Register the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);
