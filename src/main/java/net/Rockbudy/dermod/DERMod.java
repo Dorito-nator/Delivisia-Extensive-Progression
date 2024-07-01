@@ -29,7 +29,7 @@ public class DERMod
 
         ModItems.register(modEventBus);
         DERCreativeModeTabs.register(modEventBus);
-        ModBlocks.register(modEventBus);
+        //ModBlocks.register(modEventBus);
 
         // Register the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);

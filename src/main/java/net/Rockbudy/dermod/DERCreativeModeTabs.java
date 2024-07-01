@@ -18,6 +18,11 @@ public class DERCreativeModeTabs {
                     .title(Component.translatable("creativetab.der_tab"))
                     .displayItems((pParameters, pOutput)->{
                         pOutput.accept(ModItems.TESLA_ALLOY.get());
+                        pOutput.accept(ModItems.EYE_OF_THE_VOID.get());
+                        pOutput.accept(ModItems.MIRACLE_PRISM.get());
+                        pOutput.accept(ModItems.THE_EQUILIBRIUM.get());
+                        pOutput.accept(ModItems.HEART_OF_BALANCE.get());
+                        pOutput.accept(ModItems.MOLTEN_NETHERITE.get());
                     })
                     .build());
 

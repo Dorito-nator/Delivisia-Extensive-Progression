@@ -14,6 +14,17 @@ public class ModItems {
     //Materials
     public static final RegistryObject<Item> TESLA_ALLOY = ITEMS.register("teslaalloy",
             ()-> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> EYE_OF_THE_VOID = ITEMS.register("eyeofthevoid",
+            ()-> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> MIRACLE_PRISM = ITEMS.register("miracleprism",
+            ()-> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> THE_EQUILIBRIUM = ITEMS.register("theequilibrium",
+            ()-> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> HEART_OF_BALANCE = ITEMS.register("heartofbalance",
+            ()-> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> MOLTEN_NETHERITE = ITEMS.register("moltennetherite",
+            ()-> new Item(new Item.Properties()));
+
 
 
     public static  void register(IEventBus eventBus){ITEMS.register(eventBus);}
