@@ -1,5 +1,6 @@
 package net.Rockbudy.dermod;
 
+import net.Rockbudy.dermod.block.ModBlocks;
 import net.Rockbudy.dermod.items.ModItems;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
@@ -23,6 +24,7 @@ public class DERCreativeModeTabs {
                         pOutput.accept(ModItems.THE_EQUILIBRIUM.get());
                         pOutput.accept(ModItems.HEART_OF_BALANCE.get());
                         pOutput.accept(ModItems.MOLTEN_NETHERITE.get());
+                        pOutput.accept(ModBlocks.TRANCENDENCE_ANVIL.get());
                     })
                     .build());
 

@@ -2,7 +2,11 @@ package net.Rockbudy.dermod;
 
 import com.mojang.logging.LogUtils;
 import net.Rockbudy.dermod.block.ModBlocks;
+import net.Rockbudy.dermod.block.entity.ModBlockEntitys;
 import net.Rockbudy.dermod.items.ModItems;
+import net.Rockbudy.dermod.screen.ModMenuTypes;
+import net.Rockbudy.dermod.screen.TransendanceAnvilScreen;
+import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
@@ -29,10 +33,13 @@ public class DERMod
 
         ModItems.register(modEventBus);
         DERCreativeModeTabs.register(modEventBus);
-        //ModBlocks.register(modEventBus);
+        ModBlocks.register(modEventBus);
+        ModBlockEntitys.register(modEventBus);
+
+        ModMenuTypes.register(modEventBus);
 
         // Register the commonSetup method for modloading
-        modEventBus.addListener(this::commonSetup);
+
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
 
@@ -40,10 +47,6 @@ public class DERMod
         modEventBus.addListener(this::addCreative);
     }
 
-    private void commonSetup(final FMLCommonSetupEvent event)
-    {
-
-    }
 
     // Add the example block item to the building blocks tab
     private void addCreative(BuildCreativeModeTabContentsEvent event)
@@ -65,7 +68,7 @@ public class DERMod
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event)
         {
-            // Some client setup code
+            MenuScreens.register(ModMenuTypes.TRANCENDANCE_ANVIL_MENU.get(), TransendanceAnvilScreen::new);
 
         }
     }
