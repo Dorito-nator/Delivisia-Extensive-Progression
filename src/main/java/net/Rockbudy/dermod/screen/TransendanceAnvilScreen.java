@@ -20,6 +20,8 @@ public class TransendanceAnvilScreen extends AbstractContainerScreen<Transendanc
     @Override
     protected void init() {
         super.init();
+        this.inventoryLabelY = 10000;
+        this.titleLabelY = 10000;
     }
 
     @Override

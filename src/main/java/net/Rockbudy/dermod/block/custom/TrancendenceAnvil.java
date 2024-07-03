@@ -26,7 +26,7 @@ import org.jetbrains.annotations.Nullable;
 
 
 public class TrancendenceAnvil extends BaseEntityBlock {
-    public static final VoxelShape SHAPE = Block.box(0,0,0,32,16,16);
+    public static final VoxelShape SHAPE = Block.box(0,0,0,16,16,16);
 
     public TrancendenceAnvil(Properties pProperties) {
         super(pProperties);

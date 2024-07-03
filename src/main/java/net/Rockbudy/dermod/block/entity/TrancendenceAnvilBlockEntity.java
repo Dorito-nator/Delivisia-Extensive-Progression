@@ -1,13 +1,11 @@
 package net.Rockbudy.dermod.block.entity;
 
-import net.Rockbudy.dermod.block.custom.TrancendenceAnvil;
 import net.Rockbudy.dermod.items.ModItems;
 import net.Rockbudy.dermod.screen.TransendanceAnvilMenu;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
-import net.minecraft.world.Container;
 import net.minecraft.world.Containers;
 import net.minecraft.world.MenuProvider;
 import net.minecraft.world.SimpleContainer;
@@ -19,7 +17,6 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
-import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.capabilities.ForgeCapabilities;
@@ -130,11 +127,13 @@ public class TrancendenceAnvilBlockEntity extends BlockEntity implements MenuPro
 
     public void tick(Level pLevel, BlockPos pPos, BlockState pState) {
         if(hasRecipe()){
+            this.itemStackHandler.getStackInSlot(MIDDLE_SLOT);
+
             increaseCraftingProgress();
             setChanged(pLevel,pPos,pState);
 
             if (hasProgressFinished()){
-                craftItem();
+                UpgradeItem();
                 resetProgress();
             }
         }else {
@@ -142,16 +141,13 @@ public class TrancendenceAnvilBlockEntity extends BlockEntity implements MenuPro
         }
     }
 
-    private void craftItem() {
+    private void UpgradeItem() {
         ItemStack reult = new ItemStack(ModItems.TESLA_ALLOY.get(), 1);
         for(int i = 1; i == 4; i++){
             this.itemStackHandler.extractItem(i, 1, false);
-            this.itemStackHandler.setStackInSlot(i, new ItemStack(reult.getItem(),
-                    this.itemStackHandler.getStackInSlot(i).getCount() + reult.getCount()));
+            this.itemStackHandler.setStackInSlot(MIDDLE_SLOT, new ItemStack(reult.getItem(),
+                    this.itemStackHandler.getStackInSlot(MIDDLE_SLOT).getCount() + reult.getCount()));
             }
-
-
-
     }
 
     private void resetProgress() {
